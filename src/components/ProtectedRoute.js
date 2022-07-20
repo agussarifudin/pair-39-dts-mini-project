@@ -1,23 +1,25 @@
-import { Navigate,Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
+const PrivateRoutes = () => {
+  let token;
 
-const PrivateRoutes=()=>{
-    let token
-  
-    if(localStorage.email===""){
-token=false
-    }else {
-        token=true
-    }
-  
-    let auth = {token}
-   
-  
-     return auth.token?localStorage.login?<Navigate to="/home"/>:<Outlet/>: <Navigate to="/login"/>
-   
-    
-        
-    
-}
+  if (localStorage.email === "") {
+    token = false;
+  } else {
+    token = true;
+  }
 
-export default PrivateRoutes
+  let auth = { token };
+
+  return auth.token ? (
+    localStorage.login ? (
+      <Outlet />
+    ) : (
+      <Navigate to="/login" />
+    )
+  ) : (
+    <Navigate to="/login" />
+  );
+};
+
+export default PrivateRoutes;
