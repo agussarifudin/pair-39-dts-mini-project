@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./containers/Home";
 import Navbar from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import MovieList from "./components/MovieList";
@@ -8,7 +7,7 @@ import Swal from "sweetalert2";
 import React, { Component } from "react";
 import CarouselComponent from "./components/CarouselComponent";
 import { Container } from "@mui/system";
-import { Row, Input, UncontrolledCarousel } from "reactstrap";
+import { Row } from "reactstrap";
 
 export default class App extends Component {
   constructor() {
@@ -26,6 +25,7 @@ export default class App extends Component {
       postUrl: [],
       carousel: [],
       searchTerm: "",
+      videoId: "",
     };
   }
 
@@ -59,6 +59,7 @@ export default class App extends Component {
           runtime: res.data.runtime,
           postUrl: url,
           carousel: options,
+          videoId: res.data.videoId,
         });
       })
 
@@ -108,18 +109,17 @@ export default class App extends Component {
     return (
       <>
         <Navbar />
-
         <div style={{ background: "black" }}>
-          <Home />
+          {/* <Home /> */}
           <Container>
             <Row>
-              <Input
+              {/* <Input
                 bsSize="lg"
                 className="mb-3"
                 placeholder="Search.."
                 value={this.state.searchTerm}
                 onChange={(i) => this.editSearchTerm(i)}
-              />
+              /> */}
               <CarouselComponent url={this.state.carousel} />
 
               <MovieList
@@ -131,6 +131,7 @@ export default class App extends Component {
                 director={"Dsadsa"}
                 actors={this.state.actors}
                 postUrl={this.state.postUrl}
+                videoId={this.state.videoId}
               />
             </Row>
           </Container>

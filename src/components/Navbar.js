@@ -41,7 +41,7 @@ const NavBar = () => {
             component="div"
             sx={{ flexGrow: 1, textAlign: "left" }}
           >
-            Mood Meter
+            Pair 39 Movie Class B
           </Typography>
           {login === "true" ? (
             <Button color="inherit" onClick={onLogout}>

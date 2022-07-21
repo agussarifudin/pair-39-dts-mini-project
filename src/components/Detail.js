@@ -1,4 +1,3 @@
-import { BottomNavigation } from "@mui/material";
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import YouTube from "react-youtube";
@@ -17,8 +16,8 @@ import NavBar from "./Navbar";
 
 const opts = {
   position: "center",
-  height: "300",
-  width: "720",
+  height: "500",
+  width: "870",
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 1,
@@ -41,13 +40,13 @@ const Detail = () => {
                   "linear-gradient(to bottom, #99ccff 0%, #66ffff 100%)",
               }}
             >
-              <img
-                alt="Card"
-                src={`${location.state.url}`}
-                style={{ height: 500 }}
-              />
-              <Row style={{ position: "center", textAlign: "center" }}>
-                <YouTube opts={opts} />
+              <Row sm={6} style={{ position: "center", textAlign: "center" }}>
+                <img
+                  alt="Card"
+                  src={`${location.state.url}`}
+                  style={{ height: 500, width: 400 }}
+                />
+                <YouTube opts={opts} videoId={`${location.state.videoId}`} />
               </Row>
               <CardBody color="danger" outline>
                 <CardTitle tag="h5">{location.state.film}</CardTitle>
@@ -63,7 +62,7 @@ const Detail = () => {
                 <CardText>
                   <Row>
                     <Col sm={1}> Durasi </Col>
-                    <Col>: {location.state.runtime}</Col>
+                    <Col>: {location.state.runtime} Menit</Col>
                   </Row>
                 </CardText>
 

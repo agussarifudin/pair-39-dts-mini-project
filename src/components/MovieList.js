@@ -5,14 +5,12 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
-  Button,
   Col,
-  Row,
-  Container,
   CardDeck,
 } from "reactstrap";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import Button from "@mui/material/Button";
 
 const MovieList = ({ film }) => {
   const [login] = useState(localStorage.getItem("login"));
@@ -51,10 +49,18 @@ const MovieList = ({ film }) => {
                 director: item.director,
                 actors: item.actors,
                 url: item.posterUrl,
+                videoId: item.videoId,
               }}
             >
               {login === "true" ? (
-                <Button>Detail</Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Detail
+                </Button>
               ) : (
                 <h2 style={{ display: "none" }}>dsadas</h2>
               )}
