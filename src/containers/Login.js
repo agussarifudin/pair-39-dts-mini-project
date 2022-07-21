@@ -12,6 +12,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 import NavBar from "../components/Navbar";
 import Swal from "sweetalert2";
+import GoogleLogin from "react-google-login";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -105,6 +106,7 @@ const Login = () => {
             >
               Sign In
             </Button>
+
             <Grid container>
               <Grid item>
                 <Link to="/register">{"Don't have an account? Sign Up"}</Link>

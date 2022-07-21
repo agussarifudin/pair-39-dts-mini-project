@@ -1,6 +1,7 @@
 import { BottomNavigation } from "@mui/material";
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
+import YouTube from "react-youtube";
 import {
   Button,
   Container,
@@ -13,6 +14,16 @@ import {
   CardText,
 } from "reactstrap";
 import NavBar from "./Navbar";
+
+const opts = {
+  position: "center",
+  height: "300",
+  width: "720",
+  playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 1,
+  },
+};
 
 const Detail = () => {
   const location = useLocation();
@@ -35,7 +46,10 @@ const Detail = () => {
                 src={`${location.state.url}`}
                 style={{ height: 500 }}
               />
-              <CardBody>
+              <Row style={{ position: "center", textAlign: "center" }}>
+                <YouTube opts={opts} />
+              </Row>
+              <CardBody color="danger" outline>
                 <CardTitle tag="h5">{location.state.film}</CardTitle>
                 <CardSubtitle className="mb-2 text-muted" tag="h6">
                   {location.state.genres.map((item) => item + " ")}

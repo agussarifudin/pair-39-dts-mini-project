@@ -33,7 +33,7 @@ const MovieList = ({ film }) => {
           }}
           key={index}
         >
-          {/* <img alt="e" src={`${item.posterUrl}`} /> */}
+          <img alt="e" src={`${item.posterUrl}`} />
           <CardBody>
             <CardTitle tag="h5">{item.title}</CardTitle>
             <CardSubtitle className="mb-2 text-muted" tag="h6">
